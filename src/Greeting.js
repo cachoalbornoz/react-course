@@ -1,24 +1,30 @@
-export function Greeting() {
-    const user = {
-        name: "Guillermo",
-        age: 53,
-        city: "Paraná",
-    };
-
-    function getAnoNacimiento(user) {
-        return new Date().getFullYear() - user?.age || new Date().getFullYear();
-    }
-
-    return (
-        <>
-            <h1>Hola {user.name}, tienes {user.age} años y vives en {user.city}</h1>
-            <p>Naciste en {getAnoNacimiento(user)}</p>
-        </>
-    );
+export function Greeting({ curso, nombre }) {
+  return (
+    <h1>
+      Componente de <strong>{curso}</strong> para {nombre}
+    </h1>
+  );
 }
 
-export function Encabezado() {
-    return (
-        <h1>Modulo encabezado</h1>
-    );
+export function UserCard({
+  name,
+  amount,
+  married,
+  points,
+  address: { street, city, state, zip },
+}) {
+  const promedio =
+    points.reduce((total, point) => total + point, 0) / points.length;
+
+  return (
+    <>
+      <h1>
+        user Card {name} {amount} {married ? "casado" : "soltero"}
+      </h1>
+      <p>Promedio de puntos: {promedio}</p>
+      <p>
+        Dirección: {street}, {city}, {state}, {zip}
+      </p>
+    </>
+  );
 }
