@@ -21,7 +21,13 @@ const users = [
 ];
 
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const rootElement = document.getElementById("root");
+
+if (!rootElement) {
+  throw new Error("No se encontró el elemento #root");
+}
+
+const root = ReactDOM.createRoot(rootElement);
 
 root.render(
   <>
