@@ -1,18 +1,32 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { Greeting, UserCard } from "./Greeting";
-import Button from "./Button";
-import Task from "./Task";
-import {Saludar} from "./Saludar";
+import { Posts } from "./Posts";
+
+const users = [
+  {
+    id: 1,
+    name: "Pato Albornoz",
+    image: "https://robohash.org/user1"
+  },
+  {
+    id: 2,
+    name: "Guille Albornoz",
+    image: "https://robohash.org/user2"
+  },
+  {
+    id: 3,
+    name: "Teo Albornoz",
+    image: "https://robohash.org/user3"
+  },
+];
+
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <>
-    <Saludar />
-    <Task title="Primer tarea" ready={true} />
-    <Task title="Segunda tarea" ready={false} />
-
-    <input/>
+    {users.map(user => {
+      
+    })}
   </>,
 );
