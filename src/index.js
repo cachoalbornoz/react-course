@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom/client";
 import { Posts } from "./Posts";
 
@@ -9,12 +9,17 @@ const root = ReactDOM.createRoot(rootElement);
 
 function Counter() {
 
-  const [mensaje, setMensaje] = useState(null);
+  const [valor, setValor] = useState(0);
+
+  useEffect(() => {
+    console.log("El valor del contador es: " + valor);
+  }, [valor]);
 
   return (
     <>
-      <input onChange={(e) => setMensaje(e.target.value)} />
-      <button onClick={() => alert(mensaje)} >Mostrar</button>
+      <h1>Contador: {valor}</h1>
+      <button onClick={() => setValor(valor + 1)} >Sumar + </button>
+      <button onClick={() => setValor(valor - 1)} >Restar -</button>
     </>
   )
 
